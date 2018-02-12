@@ -1,0 +1,56 @@
+{
+  "attackBtnPos": [
+    664,
+    420
+  ],
+  "orgin": [
+    425,
+    281
+  ],
+  "raisePricePos": [
+    823,
+    182
+  ],
+  "myPricePosSize": {
+    "size": [
+      65,
+      22
+    ],
+    "pos": [
+      807,
+      130
+    ]
+  },
+  "currTimePosSize": {
+    "size": [
+      84,
+      19
+    ],
+    "pos": [
+      131,
+      287
+    ]
+  },
+  "bidBtnPos": [
+    973,
+    314
+  ],
+  "reloadBtnPos": [
+    795,
+    402
+  ],
+  "raisePriceBtnPos": [
+    973,
+    182
+  ],
+  "minPricePosSize": {
+    "size": [
+      56,
+      19
+    ],
+    "pos": [
+      164,
+      306
+    ]
+  }
+}

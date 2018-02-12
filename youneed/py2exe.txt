@@ -1,0 +1,8 @@
+cd D:\program\autopaipai
+d:
+pyinstaller app.spec
+
+pyinstaller -d --onefile setting.py
+pyinstaller -d --onefile getMousePos.py
+
+pyinstaller -w --onefile autopaipai.py
