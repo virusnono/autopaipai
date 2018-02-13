@@ -37,7 +37,8 @@ def test_pos():
 
 
 def cal_setting_config():
-    global setconf
+    global setconf, relconf
+    relconf = config.open_relative_config()
     orginPoint = relconf['orgin']
     for x in relconf.keys():
         if re.match(r'^(.*)Pos$', x, re.I) is not None:

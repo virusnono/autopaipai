@@ -10,9 +10,10 @@ import capture
 import ocr
 import win32api
 import os
-import autopaipaiUI
 from common import tool
 import const
+import autopaipaiUI
+import pricesettingUI
 
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import *
@@ -33,22 +34,22 @@ k = PyKeyboard()
 x_dim, y_dim = m.screen_size()
 
 # 设置，设置保存在 config 文件夹中
-config = config.open_setting_config()
-raisePricePos = config["raisePricePos"]
-raisePriceBtnPos = config["raisePriceBtnPos"]
-bidBtnPos = config["bidBtnPos"]
-reloadBtnPos = config["reloadBtnPos"]
-attackBtnPos = config["attackBtnPos"]
+setconfig = config.open_setting_config()
+raisePricePos = setconfig["raisePricePos"]
+raisePriceBtnPos = setconfig["raisePriceBtnPos"]
+bidBtnPos = setconfig["bidBtnPos"]
+reloadBtnPos = setconfig["reloadBtnPos"]
+attackBtnPos = setconfig["attackBtnPos"]
 # raisePriceBtnPos = (raisePricePos[0]+150, raisePricePos[1])
 # bidBtnPos = (raisePricePos[0]+150, raisePricePos[1]+132)
 
-currTimePosSize = config["currTimePosSize"]
-minPricePosSize = config["minPricePosSize"]
-myPricePosSize = config["myPricePosSize"]
+currTimePosSize = setconfig["currTimePosSize"]
+minPricePosSize = setconfig["minPricePosSize"]
+myPricePosSize = setconfig["myPricePosSize"]
 
-raisePrice = config["raisePrice"]
-bidTime = config["bidTime"]
-attackLastTime = config["attackLastTime"]
+raisePrice = setconfig["raisePrice"]
+bidTime = setconfig["bidTime"]
+attackLastTime = setconfig["attackLastTime"]
 
 minPriceFileName = "minPrice.bmp"
 currTimeFileName = "currTime.bmp"
@@ -57,6 +58,13 @@ myPriceFileName = "myPrice.bmp"
 bidRunning = threading.Event()
 bidRunning.set()
 # bidRunning = None
+
+def reloadPriceSetting():
+    global setconfig, raisePrice, bidTime, attackLastTime
+    setconfig = config.open_setting_config()
+    raisePrice = setconfig["raisePrice"]
+    bidTime = setconfig["bidTime"]
+    attackLastTime = setconfig["attackLastTime"]
 
 
 def start():
@@ -353,7 +361,6 @@ class BidThread(QThread):
         global bidRunning
         bidRunning = threading.Event() #用于停止线程的标识
 
-
     def run(self):
         self.signal_ShowStatus.emit('自动拍牌已启动！')
         global bidRunning
@@ -364,7 +371,6 @@ class BidThread(QThread):
             self.signal_ShowError.emit(e, '出价线程')  
             self.signal_ShowStatus.emit('出价线程出错，已停止！原因：{}'.format(str(e)))
 
-    
     def stop(self):
         global bidRunning
         bidRunning.clear()

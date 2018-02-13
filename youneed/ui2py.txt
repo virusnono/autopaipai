@@ -1,1 +1,3 @@
 "C:\Users\ssge\AppData\Local\Programs\Python\Python35\Lib\site-packages\PyQt5\pyuic5" -x D:\program\autopaipai\autopaipai.ui -o D:\program\autopaipai\autopaipaiUI.py
+
+"C:\Users\ssge\AppData\Local\Programs\Python\Python35\Lib\site-packages\PyQt5\pyuic5" -x D:\program\autopaipai\pricesetting.ui -o D:\program\autopaipai\pricesettingUI.py
