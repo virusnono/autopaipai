@@ -246,6 +246,8 @@ class autopaipai(QWidget, autopaipaiUI.Ui_MainWindow):
         self.btnTimeSync.clicked.connect(self.TimeSync)
         self.btnSetting.clicked.connect(self.Setting)
 
+        self.actionPriceSetting.triggered.connect(self.PriceSettingTriggered)
+
         self.signal_ShowStatus.connect(self.ShowStatus)
         self.signal_ShowError.connect(self.ShowError)
 
@@ -287,6 +289,14 @@ class autopaipai(QWidget, autopaipaiUI.Ui_MainWindow):
         button = QMessageBox.warning(self.MainWindow, '需要重启', '位置校准后需要重启软件！请重启', buttons=QMessageBox.Ok|QMessageBox.Cancel)
         if button == QMessageBox.Ok:
             self.MainWindow.close()
+
+    @tool.log()
+    @tool.catchException()
+    def PriceSettingTriggered(self, e):
+        priceSettingDialog = QtWidgets.QDialog()
+        ui = pricesetting()
+        ui.setupUi(priceSettingDialog)
+        priceSettingDialog.exec()
 
     # @tool.log()
     @tool.catchException()
@@ -374,6 +384,29 @@ class BidThread(QThread):
     def stop(self):
         global bidRunning
         bidRunning.clear()
+
+
+class pricesetting(QWidget, pricesettingUI.Ui_Dialog):
+
+    def setupUi(self, Dialog):
+        self.Dialog = Dialog
+        super().setupUi(Dialog)
+        self.buttonBox.accepted.connect(self.DialogAccept)
+
+        reloadPriceSetting()
+        self.txtAttrackLastTime.setText(attackLastTime)
+        self.txtBidTime.setText(bidTime)
+        self.txtRaisePrice.setText(raisePrice)
+
+    def DialogAccept(self):
+        global setconfig
+        setconfig['attackLastTime'] = self.txtAttrackLastTime.text()
+        setconfig['bidTime'] = self.txtBidTime.text()
+        setconfig['raisePrice'] = self.txtRaisePrice.text()
+        config.write_setting_config(setconfig)
+        reloadPriceSetting()
+        self.Dialog.accept()
+
 
 
 if __name__ == '__main__':

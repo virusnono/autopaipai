@@ -1,55 +1,55 @@
 {
-    "bidBtnPos": [
-        1302,
-        490
-    ],
+    "myPricePosSize": {
+        "pos": [
+            1234,
+            409
+        ],
+        "size": [
+            65,
+            22
+        ]
+    },
+    "currTimePosSize": {
+        "pos": [
+            556,
+            568
+        ],
+        "size": [
+            84,
+            19
+        ]
+    },
     "reloadBtnPos": [
-        1168,
-        561
+        1220,
+        683
+    ],
+    "bidBtnPos": [
+        1398,
+        595
+    ],
+    "raisePricePos": [
+        1248,
+        463
+    ],
+    "attackLastTime": "57",
+    "raisePrice": "1000",
+    "raisePriceBtnPos": [
+        1398,
+        463
     ],
     "minPricePosSize": {
         "pos": [
-            663,
-            484
+            589,
+            587
         ],
         "size": [
-            45,
-            15
+            56,
+            19
         ]
     },
-    "raisePriceBtnPos": [
-        1302,
-        382
-    ],
-    "attackBtnPos": [
-        1061,
-        575
-    ],
     "bidTime": "45",
-    "currTimePosSize": {
-        "pos": [
-            636,
-            467
-        ],
-        "size": [
-            67,
-            15
-        ]
-    },
-    "myPricePosSize": {
-        "pos": [
-            1178,
-            340
-        ],
-        "size": [
-            53,
-            18
-        ]
-    },
-    "raisePrice": "1000",
-    "raisePricePos": [
-        1194,
-        385
-    ],
-    "attackLastTime": "57"
+    "attackBtnPos": [
+        1089,
+        701
+    ]
 }

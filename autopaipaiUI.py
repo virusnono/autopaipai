@@ -79,10 +79,16 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 356, 26))
         self.menubar.setObjectName("menubar")
+        self.menu = QtWidgets.QMenu(self.menubar)
+        self.menu.setObjectName("menu")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionPriceSetting = QtWidgets.QAction(MainWindow)
+        self.actionPriceSetting.setObjectName("actionPriceSetting")
+        self.menu.addAction(self.actionPriceSetting)
+        self.menubar.addAction(self.menu.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -95,6 +101,10 @@ class Ui_MainWindow(object):
         self.btnStart.setText(_translate("MainWindow", "启动"))
         self.btnTimeSync.setText(_translate("MainWindow", "时间校准"))
         self.btnSetting.setText(_translate("MainWindow", "位置校准"))
+        self.menu.setTitle(_translate("MainWindow", "设置"))
+        self.actionPriceSetting.setText(_translate("MainWindow", "拍牌策略"))
+        self.actionPriceSetting.setIconText(_translate("MainWindow", "拍牌策略"))
+        self.actionPriceSetting.setShortcut(_translate("MainWindow", "Alt+P"))
 
 
 if __name__ == "__main__":

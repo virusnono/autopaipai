@@ -136,8 +136,26 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <addaction name="actionPriceSetting"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionPriceSetting">
+   <property name="text">
+    <string>拍牌策略</string>
+   </property>
+   <property name="iconText">
+    <string>拍牌策略</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+P</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
